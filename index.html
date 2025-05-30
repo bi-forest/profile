@@ -79,6 +79,15 @@
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 40px;
+
+      /* 初期は非表示・透明 */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    .career-highlight.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .career-highlight h2 {
       font-family: 'Playfair Display', serif;
@@ -135,8 +144,8 @@
       </a>
     </div>
 
-    <div class="career-highlight">
-      <h2>＃Highlights＃</h2>
+    <div class="career-highlight" id="career">
+      <h2>Career Highlights</h2>
       <ul>
         <li>国連主催「赤毛のアン」日本・NY公演 主役ヘアメイク担当<br>
             Lead Hair and Makeup Artist for "Anne of Green Gables" (United Nations, Japan & NY Tour)</li>
@@ -154,6 +163,22 @@
     </div>
 
   </div>
+
+  <script>
+    // フェードイン用スクリプト
+    document.addEventListener("DOMContentLoaded", function() {
+      const career = document.getElementById("career");
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            career.classList.add("visible");
+            observer.unobserve(career); // 1回だけ実行
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(career);
+    });
+  </script>
 
 </body>
 </html>
