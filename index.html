@@ -28,14 +28,25 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     .name-container {
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-bottom: 20px;
+      gap: 10px;
     }
     .name {
       font-family: 'Playfair Display', serif;
       font-size: 36px;
       color: #aa7b62;
-      margin-bottom: 5px;
+    }
+    .icon-container img {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .icon-container img:hover {
+      transform: scale(1.1);
     }
     .bio {
       text-align: center;
@@ -93,10 +104,9 @@
 
     <div class="name-container">
       <div class="name">Yuko</div>
-      <!-- カードアイコン（クリックでother_page.htmlへ遷移） -->
-    <a href="business card.html" class="icon-container">
+      <a href="business card.html" class="icon-container">
         <img id="toggle-icon" src="assets/add_card_300dp_434343.svg" alt="Card Icon">
-    </a>
+      </a>
     </div>
 
     <div class="bio">
@@ -131,4 +141,3 @@
 
 </body>
 </html>
-
